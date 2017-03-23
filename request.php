@@ -1,6 +1,13 @@
+
+
 <?php
 
 include 'header.php';
+?>
+
+<h1>Séléction de produit à éliminer</h1>
+
+<?php
 
 for ($j=1; $j<5; $j++){
 $url = 'https://fr.openfoodfacts.org/category/{product}/' . $j . '.json';
@@ -16,12 +23,15 @@ $json = json_decode($result, true);
 
 
 ?>
-<table>
+
+
+<table class="table table-bordered">
     <thead>
     <th>nom</th>
     <th>kcal</th>
     <th>note</th>
     <th>image</th>
+    <th>celui-ci</th>
     </thead>
     <tbody>
     <?php
