@@ -1,13 +1,16 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>OFF</title>
 </head>
 <body>
-<form action="./request.php" method="get">
-    <input type="text" class="form-control" placeholder="barcode" name="ean13">
-    <input type="submit" name="Ok" value="Find this Barcode !">
+
+<form action="request.php" method="POST">
+    <input type="text" class="form-control" placeholder="produit" name="produit">
+    <input type="submit" name="Ok" value="Find this produit !">
+
 </form>
 </body>
 </html>
