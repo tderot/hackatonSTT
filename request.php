@@ -1,13 +1,12 @@
-
-
 <?php
 
 include 'header.php';
+
 ?>
 
 <h1>C'est qui qui a mangé des trucs trop gras et qui culpabilise?</h1>
 
-<table class="table table-bordered">
+<table class="table table-bordered sortable">
     <thead>
     <th>nom</th>
     <th>kcal</th>
@@ -46,7 +45,7 @@ $json = json_decode($result, true);
             echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
 
             echo '<td><form action="sport.php" method="get">
-                      <button type="submit" class="btn btn-success">c\'est à cause de lui</button>
+                      <button type="submit" class="btn btn-success" name="produitname">c\'est à cause de lui</button>
                     </form></td>';
 
             echo '</tr>';
@@ -57,7 +56,9 @@ $json = json_decode($result, true);
     </tbody>
 </table>
 
-
+<?php
+include 'footer.php';
+?>
 
 
 
