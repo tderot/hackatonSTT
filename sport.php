@@ -33,25 +33,41 @@ $productArray = explode(',', $product);
     </table>
 
 
-    <form name="sports" method="GET" action="">
+    <form method="POST">
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
             <select class="form-control" id="sport">
                 <?php
 
-                $sport = mysqli_query($bdd, "SELECT sport FROM sports");
+                $sport = mysqli_query($bdd, "SELECT * FROM sports");
                 while ($data=mysqli_fetch_assoc($sport)) {
-                    echo '<option>'.$data['sport'].'</option>';
+                    $truc = $data['sport'];
+                    echo '<option>'.$truc.'</option>';
                 }
                 ?>
 
             </select>
         </div>
 
-        <input class="btn btn-success" type="submit" name="ajout" value="Calcul">
+        <input type="submit" name="Ok" value="Calcul">
     </form>
 
 
+
 <?php
+$calprod = $productArray[1];
+$calcul = $truc;
+$res = mysqli_query($bdd, "SELECT * FROM sports");
+
+
+
+    if($calcul=$res['sport']){
+        $result = $calprod/$res['kcal'];
+    }
+
+
+echo $result;
+
+
 include 'footer.php';
 ?>
