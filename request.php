@@ -1,8 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>OFF</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+
+
+
 <?php
 
-
-$url = 'https://ssl-api.openfoodfacts.org/category/{product}.json';
-
+$url = 'https://fr.openfoodfacts.org/category/{product}.json';
 
 $produit = $_POST['produit'];
 
@@ -13,10 +24,36 @@ $result = file_get_contents($url);
 $json = json_decode($result, true);
 
 
-for ($i=0; $i<25;$i++) {
+?>
+<table>
+    <thead>
+        <th>nom</th>
+        <th>kcal</th>
+        <th>note</th>
+        <th>image</th>
+    </thead>
+    <tbody>
+<?php
+for ($i=0; $i<20; $i++)
+{
 
-    $img=$json ['products'][$i]['image_url'];
-    var_dump($json ['products'][$i]['product_name']);
-    var_dump($json ['products'][$i]['image_url']);
-    echo '<img src="'.$img.'"alt= "buvez">';
+    $image=$json['products'][$i]['image_url'];
+
+    echo '<tr>';
+
+    echo '<td>' . $json['products'][$i]['product_name'] . '</td>';
+
+    echo '<td>' . $json['products'][$i]['nutriments']['energy_value'] . '</td>';
+
+    echo '<td>' . $json['products'][$i]['nutrition_grades'] . '</td>';
+
+    echo '<td>' . '<img src="'.$image.'" alt="boire ou manger"></td>';
+
+    echo '</tr>';
 }
+?>
+    </tbody>
+</table>
+</html>
+
+
