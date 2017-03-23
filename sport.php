@@ -71,3 +71,4 @@ echo $result;
 
 include 'footer.php';
 ?>
+

@@ -1,13 +1,12 @@
-
-
 <?php
 
 include 'header.php';
+
 ?>
 
 <h1>C'est qui qui a mangé des trucs trop gras et qui culpabilise?</h1>
 
-<table class="table table-bordered">
+<table class="table table-bordered sortable">
     <thead>
     <th>nom</th>
     <th>kcal</th>
@@ -60,6 +59,7 @@ $json = json_decode($result, true);
 
             echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
 
+
             echo '<td>
                       <a href="sport.php?product='.$test1.'" class="btn btn-success" role="button">c\'est à cause de lui</a>
                     </td>';
@@ -72,7 +72,9 @@ $json = json_decode($result, true);
     </tbody>
 </table>
 
-
+<?php
+include 'footer.php';
+?>
 
 
 
