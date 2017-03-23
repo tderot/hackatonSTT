@@ -42,7 +42,7 @@ $json = json_decode($result, true);
             $note = $json['products'][$i]['nutrition_grade_fr'];
 
             $test = array('name'=>$json['products'][$i]['product_name'],
-                            'kcal'=>$json['products'][$i]['nutriments']['energy_value'],
+                            'kcal'=>$kcal,
                             'note'=>$json['products'][$i]['nutrition_grade_fr'],
                             'image'=>$image);
 
