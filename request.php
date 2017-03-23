@@ -29,24 +29,40 @@ $result = file_get_contents($url);
 
 $json = json_decode($result, true);
 
+
     for ($i = 0; $i < 100; $i++) {
-        if (isset($json['products'][$i]['product_name']) && isset($json['products'][$i]['nutriments']['energy_value']) && isset($json['products'][$i]['nutrition_grades']) && isset($json['products'][$i]['image_url'])) {
+        if (isset($json['products'][$i]['product_name']) && isset($json['products'][$i]['nutriments']['energy_value']) && isset($json['products'][$i]['nutrition_grade_fr']) && isset($json['products'][$i]['image_url'])) {
 
             $image = $json['products'][$i]['image_url'];
 
+            $name = $json['products'][$i]['product_name'];
+
+            $kcal = round($json['products'][$i]['nutriments']['energy_value']/4.18);
+
+            $note = $json['products'][$i]['nutrition_grade_fr'];
+
+            $test = array('name'=>$json['products'][$i]['product_name'],
+                            'kcal'=>$json['products'][$i]['nutriments']['energy_value'],
+                            'note'=>$json['products'][$i]['nutrition_grade_fr'],
+                            'image'=>$image);
+
+            $test1 = implode($test,',');
+            //var_dump($test1);
             echo '<tr>';
 
-            echo '<td>' . $json['products'][$i]['product_name'] . '</td>';
+            echo '<td>' . $name . '</td>';
 
-            echo '<td>' . $json['products'][$i]['nutriments']['energy_value'] . '</td>';
 
-            echo '<td>' . $json['products'][$i]['nutrition_grades'] . '</td>';
+            echo '<td>' . $kcal . '</td>';
+
+            echo '<td>' . $note . '</td>';
 
             echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
 
-            echo '<td><form action="sport.php" method="get">
-                      <button type="submit" class="btn btn-success" name="produitname">c\'est à cause de lui</button>
-                    </form></td>';
+
+            echo '<td>
+                      <a href="sport.php?product='.$test1.'" class="btn btn-success" role="button">c\'est à cause de lui</a>
+                    </td>';
 
             echo '</tr>';
         }
