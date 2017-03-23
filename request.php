@@ -1,5 +1,7 @@
 <?php
 
+include 'header.php';
+
 for ($j=1; $j<5; $j++){
 $url = 'https://fr.openfoodfacts.org/category/{product}/' . $j . '.json';
 
