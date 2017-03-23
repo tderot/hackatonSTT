@@ -1,59 +1,60 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>OFF</title>
-    <link href="style.css" rel="stylesheet">
+<?php
 
-</head>
+include 'header.php';
+?>
+
+<h1>Séléction de produit à éliminer</h1>
 
 
-
+<table class="table table-bordered">
+    <thead>
+    <th>nom</th>
+    <th>kcal</th>
+    <th>note</th>
+    <th>image</th>
+    <th>celui-ci</th>
+    </thead>
+    <tbody>
 
 <?php
 
-$url = 'https://fr.openfoodfacts.org/category/{product}.json';
+for ($j=1; $j<5; $j++){
+$url = 'https://fr.openfoodfacts.org/category/{product}/' . $j . '.json';
+
 
 $produit = $_POST['produit'];
 
-$url = str_replace(['{product}'],[$produit],$url);
+$url = str_replace(['{product}'], [$produit], $url);
 
 $result = file_get_contents($url);
 
 $json = json_decode($result, true);
 
+    for ($i = 0; $i < 100; $i++) {
+        if (isset($json['products'][$i]['product_name']) && isset($json['products'][$i]['nutriments']['energy_value']) && isset($json['products'][$i]['nutrition_grades']) && isset($json['products'][$i]['image_url'])) {
 
-?>
-<table>
-    <thead>
-        <th>nom</th>
-        <th>kcal</th>
-        <th>note</th>
-        <th>image</th>
-    </thead>
-    <tbody>
-<?php
-for ($i=0; $i<20; $i++)
-{
+            $image = $json['products'][$i]['image_url'];
 
-    $image=$json['products'][$i]['image_url'];
+            echo '<tr>';
 
-    echo '<tr>';
+            echo '<td>' . $json['products'][$i]['product_name'] . '</td>';
 
-    echo '<td>' . $json['products'][$i]['product_name'] . '</td>';
+            echo '<td>' . $json['products'][$i]['nutriments']['energy_value'] . '</td>';
 
-    echo '<td>' . $json['products'][$i]['nutriments']['energy_value'] . '</td>';
+            echo '<td>' . $json['products'][$i]['nutrition_grades'] . '</td>';
 
-    echo '<td>' . $json['products'][$i]['nutrition_grades'] . '</td>';
+            echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
 
-    echo '<td>' . '<img src="'.$image.'" alt="boire ou manger"></td>';
-
-    echo '</tr>';
-}
+            echo '</tr>';
+        }
+    }
+    }
 ?>
     </tbody>
 </table>
 </html>
+
+
 
 

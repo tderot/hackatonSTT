@@ -1,11 +1,12 @@
-thead{
 
-    text-align: left;
-    background-color: tomato;
+img{
+    height: 50px;
+    width: 50px;
 }
 
+body {
 
-image{
-
+    background-color:black ;
 
 }
+
