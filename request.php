@@ -1,6 +1,6 @@
 <?php
-$url = 'https://fr.openfoodfacts.org/category/{product}.json';
 
+$url = 'https://fr.openfoodfacts.org/category/{product}.json';
 
 $produit = $_POST['produit'];
 
@@ -9,6 +9,7 @@ $url = str_replace(['{product}'],[$produit],$url);
 $result = file_get_contents($url);
 
 $json = json_decode($result, true);
+
 
 ?>
 <table>
@@ -33,10 +34,13 @@ for ($i=0; $i<20; $i++)
 
     echo '<td>' . $json['products'][$i]['nutrition_grades'] . '</td>';
 
-    echo '<td>' . '<img src="'.$image.'" alt="boire"></td>';
+    echo '<td>' . '<img src="'.$image.'" alt="boire ou manger"></td>';
 
     echo '</tr>';
 }
 ?>
     </tbody>
 </table>
+
+
+
