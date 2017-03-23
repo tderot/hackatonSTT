@@ -4,7 +4,8 @@
 include 'header.php';
 ?>
 
-<h1>Séléction de produit à éliminer</h1>
+<h1>C'est qui qui a mangé des trucs trop gras et qui culpabilise?</h1>
+
 
 
 <table class="table table-bordered">
@@ -16,7 +17,6 @@ include 'header.php';
     <th>celui-ci</th>
     </thead>
     <tbody>
-
 <?php
 
 for ($j=1; $j<5; $j++){
@@ -45,6 +45,10 @@ $json = json_decode($result, true);
             echo '<td>' . $json['products'][$i]['nutrition_grades'] . '</td>';
 
             echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
+
+            echo '<td><form action="sport.php" method="get">
+                      <button type="submit" class="btn btn-success">c\'est à cause de lui</button>
+                    </form></td>';
 
             echo '</tr>';
         }
