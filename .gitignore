@@ -1,3 +1,4 @@
+
 # Created by .ignore support plugin (hsz.mobi)
 /connect.php
 /calcul.php
@@ -6,3 +7,6 @@
 /image/nutriscore-c.svg
 /image/nutriscore-d.svg
 /image/nutriscore-e.svg
+
+
+/.gitignore

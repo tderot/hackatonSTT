@@ -38,7 +38,6 @@ switch ($productArray[2]) {
 
         <td><?php echo $productArray[0]?></td>
 
-
         <td><?php echo $productArray[1]?></td>
 
         <td><?php echo $productArray[2]?></td>
@@ -49,7 +48,9 @@ switch ($productArray[2]) {
     </table>
 
 
+
     <form method="POST">
+
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
             <select class="form-control" id="sport" name="sport">
@@ -71,26 +72,21 @@ switch ($productArray[2]) {
 
 
 <?php
+
 $calprod = $productArray[1];
 $calcul = $truc;
-
 
 if (isset($_POST['sport'])){
     $res = mysqli_query($bdd, "SELECT kcal FROM sports where id=".$_POST['sport']);
 
     while ($data=mysqli_fetch_assoc($res)) {
         $calorie = $data['kcal'];
-        echo 'il faut se bouger le cul pendant '.round($calprod/$calorie).' heures Gros sac!!';
+        $heure=floor($calprod/$calorie);
+        $minute=((($calprod/$calorie)-$heure)*60);
+        echo 'il faut se bouger le cul pendant '.$heure.' heure(s) et '.round($minute).' minute(s)!!';
+
     }
 }
 
-
-
-
-
-
-
-
 include 'footer.php';
 ?>
-
