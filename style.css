@@ -1,14 +1,14 @@
 
-.table img{
+.imgProduct{
     height: 50px;
     width: 50px;
 }
 
-body {
+/*.nutriscore{*/
+    /*height: 100px;*/
+    /*width: 180px;*/
 
-    background-color:black ;
-
-}
+/*}*/
 
 
 
@@ -20,4 +20,15 @@ table.sortable thead {
 }
 
 
+.banner{
+    background-image: url('http://lionheartstl.com/wp-content/uploads/2013/03/banner1.png');
 
+}
+body{
+    background-image: url('image/sain2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.search{
+    padding-top: 60px;
+}

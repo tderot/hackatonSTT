@@ -7,7 +7,23 @@ $bdd = mysqli_connect (SERVER,USER,PASS,DB);
 $product = $_GET['product'];
 
 $productArray = explode(',', $product);
-
+switch ($productArray[2]) {
+    case 'a':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-a.png">';
+        break;
+    case 'b':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-b.png">';
+        break;
+    case 'c':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-c.png">';
+        break;
+    case 'd':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-d.png">';
+        break;
+    case 'e':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-e.png">';
+        break;
+}
 ?>
 
     <table class="table table-bordered">
@@ -22,12 +38,11 @@ $productArray = explode(',', $product);
 
         <td><?php echo $productArray[0]?></td>
 
-
         <td><?php echo $productArray[1]?></td>
 
         <td><?php echo $productArray[2]?></td>
 
-        <td><img src="<?php echo $productArray[3]?>" alt="boire ou manger"></td>
+        <td><img class="imgProduct" src="<?php echo $productArray[3]?>" alt="boire ou manger"></td>
         </tr>
     </tbody>
     </table>
@@ -35,6 +50,7 @@ $productArray = explode(',', $product);
 
 
     <form method="POST">
+
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
             <select class="form-control" id="sport" name="sport">
@@ -57,6 +73,7 @@ $productArray = explode(',', $product);
 
 
 <?php
+
 $calprod = $productArray[1];
 $calcul = $truc;
 
@@ -68,6 +85,7 @@ if (isset($_POST['sport'])){
         $heure=floor($calprod/$calorie);
         $minute= ((($calprod/$calorie)-$heure)*60);
 //        echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
+        $minute=((($calprod/$calorie)-$heure)*60);
 
     }
 

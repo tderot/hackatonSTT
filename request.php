@@ -7,8 +7,6 @@ include 'header.php';
 
 <h1>C'est qui qui a mangé des trucs trop gras et qui culpabilise?</h1>
 
-<<<<<<< HEAD
-
 
 <table class="table table-bordered sortable">
     <thead>
@@ -44,6 +42,23 @@ $json = json_decode($result, true);
             $kcal = round($json['products'][$i]['nutriments']['energy_value']/4.18);
 
             $note = $json['products'][$i]['nutrition_grade_fr'];
+            switch ($note) {
+                case 'a':
+                    $note = '<img class="nutriscore" src="image/nutriscore-a.png">';
+                    break;
+                case 'b':
+                    $note = '<img class="nutriscore" src="image/nutriscore-b.png">';
+                    break;
+                case 'c':
+                    $note = '<img class="nutriscore" src="image/nutriscore-c.png">';
+                    break;
+                case 'd':
+                    $note = '<img class="nutriscore" src="image/nutriscore-d.png">';
+                    break;
+                case 'e':
+                    $note = '<img class="nutriscore" src="image/nutriscore-e.png">';
+                    break;
+            }
 
             $test = array('name'=>$json['products'][$i]['product_name'],
                             'kcal'=>$kcal,
@@ -61,7 +76,7 @@ $json = json_decode($result, true);
 
             echo '<td>' . $note . '</td>';
 
-            echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
+            echo '<td>' . '<img class="imgProduct" src="' . $image . '" alt="boire ou manger"></td>';
 
 
             echo '<td>
