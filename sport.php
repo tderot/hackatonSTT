@@ -26,7 +26,7 @@ switch ($productArray[2]) {
 }
 ?>
 <div class="container-fluid sportif">
-    <div class="row">
+    <div class="row prod">
         <div class="col-md-2">
             <img class="imgProduct" src="<?php echo $productArray[3] ?>" alt="boire ou manger">
         </div>
@@ -37,7 +37,7 @@ switch ($productArray[2]) {
             <?php echo $productArray[0] ?>
         </div>
     <div class="col-md-2 texteSport">
-        <?php echo $productArray[1] ?>Kcal
+        <?php echo $productArray[1] ?>  Kcal
     </div>
 
     </div>
@@ -85,7 +85,6 @@ if (isset($_POST['sport'])) {
 
 }
 
-
 ?>
 
 <!-- Modal -->
@@ -95,7 +94,7 @@ if (isset($_POST['sport'])) {
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel"></h4>
                 <?php
                 if ($heure<1){
                     echo '<img src="https://media.tenor.co/images/b50f78b7ccc3693c39a2ca2a10d83b7a/tenor.gif"class="coco" >';
@@ -109,7 +108,7 @@ if (isset($_POST['sport'])) {
             <div class="modal-body">
                 <?php
 
-                echo 'il faut se bouger le cul pendant ' . $heure . ' heures et ' . round($minute) . ' minutes!!';
+                echo ' ' . $heure . ' heures et ' . round($minute) . ' minutes!!';
 
                 ?>
             </div>

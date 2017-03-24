@@ -5,7 +5,7 @@ include 'header.php';
 
 ?>
 
-<h1>C'est qui qui a mangé des trucs trop gras et qui culpabilise?</h1>
+<h1><a href="index.php"><img src="image/fleche.png"></a>C'est ki<img src="image/kiki.png"> ki a mangé des trucs trop gras et qui culpabilise? </h1>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
