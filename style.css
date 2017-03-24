@@ -10,3 +10,15 @@ table.sortable thead {
     font-weight: bold;
     cursor: default;
 }
+.banner{
+    background-image: url('http://lionheartstl.com/wp-content/uploads/2013/03/banner1.png');
+
+}
+body{
+    background-image: url('image/sain2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.search{
+    padding-top: 60px;
+}

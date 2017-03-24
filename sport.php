@@ -22,7 +22,6 @@ $productArray = explode(',', $product);
 
         <td><?php echo $productArray[0]?></td>
 
-
         <td><?php echo $productArray[1]?></td>
 
         <td><?php echo $productArray[2]?></td>
@@ -38,13 +37,13 @@ $productArray = explode(',', $product);
 
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
-            <select class="form-control" id="sport">
+            <select class="form-control" id="sport" name="sport">
                 <?php
 
                 $sport = mysqli_query($bdd, "SELECT * FROM sports");
                 while ($data=mysqli_fetch_assoc($sport)) {
                     $truc = $data['sport'];
-                    echo '<option>'.$truc.'</option>';
+                    echo '<option value="'.$data['id'].'">'.$truc.'</option>';
                 }
                 ?>
 
@@ -60,16 +59,18 @@ $productArray = explode(',', $product);
 
 $calprod = $productArray[1];
 $calcul = $truc;
-$res = mysqli_query($bdd, "SELECT * FROM sports");
 
-    if($calcul=$res['sport']){
-        $result = $calprod/$res['kcal'];
+if (isset($_POST['sport'])){
+    $res = mysqli_query($bdd, "SELECT kcal FROM sports where id=".$_POST['sport']);
+
+    while ($data=mysqli_fetch_assoc($res)) {
+        $calorie = $data['kcal'];
+        $heure=floor($calprod/$calorie);
+        $minute=((($calprod/$calorie)-$heure)*60);
+        echo 'il faut se bouger le cul pendant '.$heure.' heure(s) et '.round($minute).' minute(s)!!';
+
     }
-
-
-echo $result;
-
+}
 
 include 'footer.php';
 ?>
-

@@ -10,11 +10,14 @@ include 'header.php';
             </div>
         </div>
         
-
-        <form action="request.php" method="POST">
-            <input type="text" class="form-control" placeholder="produit" name="produit">
-            <input type="submit" name="Ok" value="Find this produit !">
-        </form>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-6 search">
+                <form action="request.php" method="POST">
+                    <input type="text" class="form-control" placeholder="produit" name="produit">
+                    <input type="submit" name="Ok" value="Find this produit !">
+                </form>
+            </div>
+        </div>
     </div>
 </header>
 
