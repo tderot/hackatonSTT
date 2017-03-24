@@ -33,6 +33,16 @@ include 'header.php';
 
                     $json = json_decode($result, true);
 
+                    if ($json['count'] == 0) {
+                        $url = 'https://fr.openfoodfacts.org/brand/{product}/' . $j . '.json';
+
+                        $url = str_replace(['{product}'], [$produit], $url);
+
+                        $result = file_get_contents($url);
+
+                        $json = json_decode($result, true);
+                    }
+
 
                     for ($i = 0; $i < 100; $i++) {
                         if (isset($json['products'][$i]['product_name']) && isset($json['products'][$i]['nutriments']['energy_value']) && isset($json['products'][$i]['nutrition_grade_fr']) && isset($json['products'][$i]['image_url'])) {
