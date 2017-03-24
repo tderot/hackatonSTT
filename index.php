@@ -2,6 +2,7 @@
 include 'header.php';
 ?>
 
+<header>
     <header>
         <div class="container-fluid">
             <div class="row">
@@ -9,7 +10,6 @@ include 'header.php';
                     <img src="image/medecine.png">
                 </div>
             </div>
-
         </div>
 
           <div class="row">

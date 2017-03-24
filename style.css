@@ -15,16 +15,26 @@ table.sortable thead {
     color:#666666;
     font-weight: bold;
     cursor: default;
+
 }
 
 body{
-    background-image: url('image/bois.png');
+    background-image: url('image/bois2.png');
 
 }
 .search{
     padding-top: 60px;
 }
 
+.h1{
+
+    margin-left: 200px;
+}
+
+.coco{
+    width: 400px;
+    margin-left: 85px;
+}
 h1{
     font-family: 'Permanent Marker', cursive;
     text-align: center;
