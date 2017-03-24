@@ -33,13 +33,13 @@ $productArray = explode(',', $product);
     </table>
 
 
-    <form name="sports" method="GET" action="">
+    <form method="GET" action="">
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
             <select class="form-control" id="sport">
                 <?php
 
-                $sport = mysqli_query($bdd, "SELECT sport FROM sports");
+                $sport = mysqli_query($bdd, "SELECT * FROM sports");
                 while ($data=mysqli_fetch_assoc($sport)) {
                     echo '<option>'.$data['sport'].'</option>';
                 }
@@ -51,6 +51,9 @@ $productArray = explode(',', $product);
         <input class="btn btn-success" type="submit" name="ajout" value="Calcul">
     </form>
 
+<?php
+    for($m=$data['sport'];$m=)
+?>
 
 <?php
 include 'footer.php';
