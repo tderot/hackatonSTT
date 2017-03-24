@@ -9,19 +9,19 @@ $product = $_GET['product'];
 $productArray = explode(',', $product);
 switch ($productArray[2]) {
     case 'a':
-        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-a.svg">';
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-a.png">';
         break;
     case 'b':
-        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-b.svg">';
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-b.png">';
         break;
     case 'c':
-        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-c.svg">';
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-c.png">';
         break;
     case 'd':
-        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-d.svg">';
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-d.png">';
         break;
     case 'e':
-        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-e.svg">';
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-e.png">';
         break;
 }
 ?>
