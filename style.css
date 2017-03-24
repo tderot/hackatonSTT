@@ -3,7 +3,10 @@
     width: 50px;
 
 }
-
+.sortable td{
+    font-size: 20px;
+    text-align: center;
+}
 
 table.sortable thead {
     background-color:#eee;
@@ -22,4 +25,7 @@ body{
 }
 .search{
     padding-top: 60px;
+}
+h1{
+    font-weight: bolder;
 }
