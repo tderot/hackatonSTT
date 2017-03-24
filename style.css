@@ -1,9 +1,11 @@
-.imgProduct{
-    height: 50px;
-    width: 50px;
 
+.imgProduct{
+    height: 80px;
+    width: 80px;
 }
+
 .sortable td{
+
     font-size: 20px;
     text-align: center;
 }
@@ -14,18 +16,31 @@ table.sortable thead {
     font-weight: bold;
     cursor: default;
 }
-.banner{
-    background-image: url('http://lionheartstl.com/wp-content/uploads/2013/03/banner1.png');
 
-}
 body{
-    background-image: url('image/sain2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('image/bois.png');
+
 }
 .search{
     padding-top: 60px;
 }
+
 h1{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
     font-weight: bolder;
+}
+.sport td{
+    font-size: 25px;
+    font-weight: bold;
+}
+.banner img{
+    width: 100%;
+}
+.sportif .imgProduct{
+    padding-top: 20px;
+    height: 250px;
+    width: 250px;
 }

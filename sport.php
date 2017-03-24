@@ -25,35 +25,45 @@ switch ($productArray[2]) {
         break;
 }
 ?>
+<div class="container-fluid sportif">
+    <div class="row">
+        <div class="col-md-2">
 
-    <table class="table table-bordered">
-    <thead>
-    <th>nom</th>
-    <th>kcal</th>
-    <th>note</th>
-    <th>image</th>
-    </thead>
-    <tbody>
-    <tr>
+        <img class="imgProduct" src="<?php echo $productArray[3]?>" alt="boire ou manger">
 
-        <td><?php echo $productArray[0]?></td>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
 
-        <td><?php echo $productArray[1]?></td>
+            <table class="table table-bordered sport">
+            <thead>
+            <th>nom</th>
+            <th>kcal</th>
+            <th>note</th>
+            </thead>
+            <tbody>
+            <tr>
 
-        <td><?php echo $productArray[2]?></td>
+                <td><?php echo $productArray[0]?></td>
 
-        <td><img class="imgProduct" src="<?php echo $productArray[3]?>" alt="boire ou manger"></td>
-        </tr>
-    </tbody>
-    </table>
+                <td><?php echo $productArray[1]?></td>
 
+                <td><?php echo $productArray[2]?></td>
+
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
     <form method="POST">
 
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
-            <select class="form-control" id="sport" name="sport">
+            <select style="width: 20%" class="form-control" id="sport" name="sport">
                 <?php
 
                 $sport = mysqli_query($bdd, "SELECT * FROM sports");
@@ -65,8 +75,8 @@ switch ($productArray[2]) {
 
             </select>
         </div>
+        <input type="submit" value="Calcul" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"/>
 
-        <input type="submit" name="Ok" value="Calcul">
     </form>
 
 
@@ -82,11 +92,42 @@ if (isset($_POST['sport'])){
     while ($data=mysqli_fetch_assoc($res)) {
         $calorie = $data['kcal'];
         $heure=floor($calprod/$calorie);
+        $minute= ((($calprod/$calorie)-$heure)*60);
+//        echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
         $minute=((($calprod/$calorie)-$heure)*60);
-        echo 'il faut se bouger le cul pendant '.$heure.' heure(s) et '.round($minute).' minute(s)!!';
 
     }
+
+
 }
+
+
+
+?>
+
+<!-- Modal -->
+<div class="modal fade"  tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body"><?php
+
+                echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
+
+                ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php
 
 include 'footer.php';
 ?>

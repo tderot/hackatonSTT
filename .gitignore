@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# Created by .ignore support plugin (hsz.mobi)
+/connect.php
+=======
 
 # Created by .ignore support plugin (hsz.mobi)
 /connect.php
@@ -10,3 +14,4 @@
 
 
 /.gitignore
+>>>>>>> 57b415eaef9ea1d0dcb29cf384b43c6a93932a5c

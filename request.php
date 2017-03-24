@@ -1,3 +1,4 @@
+
 <?php
 
 include 'header.php';
@@ -8,7 +9,7 @@ include 'header.php';
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <table class="table table-bordered sortable">
+            <table class="table table-bordered table-hover sortable">
                 <thead>
                 <th>nom</th>
                 <th>kcal</th>
@@ -17,11 +18,12 @@ include 'header.php';
                 <th>celui-ci</th>
                 </thead>
                 <tbody>
-                <?php
+
+ <?php
+
 
                 for ($j = 1; $j < 5; $j++) {
                     $url = 'https://fr.openfoodfacts.org/category/{product}/' . $j . '.json';
-
 
                     $produit = $_POST['produit'];
 
@@ -73,7 +75,6 @@ include 'header.php';
                             echo '<tr>';
 
                             echo '<td>' . $name . '</td>';
-
 
                             echo '<td>' . $kcal . '</td>';
 
