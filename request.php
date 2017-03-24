@@ -2,13 +2,15 @@
 <?php
 
 include 'header.php';
+
 ?>
 
 <h1>C'est qui qui a mangé des trucs trop gras et qui culpabilise?</h1>
 
+<<<<<<< HEAD
 
 
-<table class="table table-bordered">
+<table class="table table-bordered sortable">
     <thead>
     <th>nom</th>
     <th>kcal</th>
@@ -44,7 +46,7 @@ $json = json_decode($result, true);
             $note = $json['products'][$i]['nutrition_grade_fr'];
 
             $test = array('name'=>$json['products'][$i]['product_name'],
-                            'kcal'=>$json['products'][$i]['nutriments']['energy_value'],
+                            'kcal'=>$kcal,
                             'note'=>$json['products'][$i]['nutrition_grade_fr'],
                             'image'=>$image);
 
@@ -61,6 +63,7 @@ $json = json_decode($result, true);
 
             echo '<td>' . '<img src="' . $image . '" alt="boire ou manger"></td>';
 
+
             echo '<td>
                       <a href="sport.php?product='.$test1.'" class="btn btn-success" role="button">c\'est à cause de lui</a>
                     </td>';
@@ -72,7 +75,6 @@ $json = json_decode($result, true);
 ?>
     </tbody>
 </table>
-</html>
 
 
 

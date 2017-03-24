@@ -8,6 +8,8 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 
+    <script src="sorttable.js"></script>
+
 </head>
 
 

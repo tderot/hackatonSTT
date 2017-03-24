@@ -1,5 +1,5 @@
 
-img{
+.table img{
     height: 50px;
     width: 50px;
 }
@@ -9,4 +9,15 @@ body {
     background-color:black ;
 
 }
+
+
+
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+
 

@@ -33,28 +33,74 @@ $productArray = explode(',', $product);
     </table>
 
 
-    <form method="GET" action="">
+
+    <form method="POST">
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
-            <select class="form-control" id="sport">
+            <select class="form-control" id="sport" name="sport">
                 <?php
 
                 $sport = mysqli_query($bdd, "SELECT * FROM sports");
                 while ($data=mysqli_fetch_assoc($sport)) {
-                    echo '<option>'.$data['sport'].'</option>';
+                    $truc = $data['sport'];
+                    echo '<option value="'.$data['id'].'">'.$truc.'</option>';
                 }
                 ?>
 
             </select>
         </div>
+        <input type="submit" value="Calcul" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"/>
 
-        <input class="btn btn-success" type="submit" name="ajout" value="Calcul">
+<!--        <input type="submit" name="Ok" value="Calcul" data-target="#myModal">-->
     </form>
 
-<?php
-    for($m=$data['sport'];$m=)
-?>
+
 
 <?php
+$calprod = $productArray[1];
+$calcul = $truc;
+
+if (isset($_POST['sport'])){
+    $res = mysqli_query($bdd, "SELECT kcal FROM sports where id=".$_POST['sport']);
+
+    while ($data=mysqli_fetch_assoc($res)) {
+        $calorie = $data['kcal'];
+        $heure=floor($calprod/$calorie);
+        $minute= ((($calprod/$calorie)-$heure)*60);
+//        echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
+
+    }
+
+
+}
+
+
+
+?>
+
+<!-- Modal -->
+<div class="modal fade"  tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body"><?php
+
+                echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
+
+                ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php
+
 include 'footer.php';
 ?>
