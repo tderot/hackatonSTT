@@ -43,12 +43,16 @@ switch ($productArray[2]) {
     </div>
 
     <div class="row">
-        <div class="col-md-offset-4 col-md-6">
+        <div class="col-md-2">
+            <a href="index.php"><img src="image/fleche.png" alt="retour acceuil"></a>
+        </div>
+
+        <div class="col-md-offset-2 col-md-8">
 
             <form method="POST">
 
                 <div class="form-group choix">
-                    <label for="sport">Choisissez un sport pour perdre toute cette graisse!</label>
+                    <label for="sport">Choisissez un sport pour <br/>perdre toutes ces calories!</label>
                     <select style="width: 20%" class="form-control" id="sport" name="sport">
                         <?php
 
@@ -108,7 +112,19 @@ if (isset($_POST['sport'])) {
             <div class="modal-body">
                 <?php
 
-                echo ' ' . $heure . ' heures et ' . round($minute) . ' minutes!!';
+                echo 'Mais vous savez moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation… Moi si je devais 
+                résumer ma vie aujourd’hui, avec vous, je dirai que c’est d’abord des rencontres, des gens qui m’ont tendu 
+                la main, peut-être à un moment où je ne pouvais pas, où j’étais seul chez moi. Et c’est assez curieux de se 
+                dire que les hasards, les rencontres forgent une destinée parce que quand on a le goût de la chose, quand on 
+                a le goût de la chose bien faite, le beau geste, parfois on ne trouve pas l’interlocuteur en face, je dirais, 
+                le miroir qui vous aide à avancer.
+Alors ça n’est pas mon cas comme je le disais là puisque moi au contraire j’ai pu et je dis merci à la vie, je lui dis merci 
+et je chante la vie, je danse la vie, je ne suis qu’Amour!
+Et finalement quand beaucoup de gens aujourd’hui me disent : “Mais comment fais tu pour avoir cette humanité?” et bien je leur 
+répond très simplement, je leur dis que c’est ce goût de l’Amour, ce goût donc qui m’a poussé aujourd’hui à entreprendre une 
+construction mécanique mais demain qui sait, peut-être simplement à me mettre au service de la communauté, à faire le don, 
+le don de soi. <br/>
+Donc pour résumer je pense que vous devriez faire ' . $heure . ' heures et ' . round($minute) . ' minutes de '.$_POST['sport'];
 
                 ?>
             </div>
