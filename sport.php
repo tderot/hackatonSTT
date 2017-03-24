@@ -36,13 +36,13 @@ $productArray = explode(',', $product);
     <form method="POST">
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
-            <select class="form-control" id="sport">
+            <select class="form-control" id="sport" name="sport">
                 <?php
 
                 $sport = mysqli_query($bdd, "SELECT * FROM sports");
                 while ($data=mysqli_fetch_assoc($sport)) {
                     $truc = $data['sport'];
-                    echo '<option>'.$truc.'</option>';
+                    echo '<option value="'.$data['id'].'">'.$truc.'</option>';
                 }
                 ?>
 
@@ -57,16 +57,22 @@ $productArray = explode(',', $product);
 <?php
 $calprod = $productArray[1];
 $calcul = $truc;
-$res = mysqli_query($bdd, "SELECT * FROM sports");
 
 
+if (isset($_POST['sport'])){
+    $res = mysqli_query($bdd, "SELECT kcal FROM sports where id=".$_POST['sport']);
 
-    if($calcul=$res['sport']){
-        $result = $calprod/$res['kcal'];
+    while ($data=mysqli_fetch_assoc($res)) {
+        $calorie = $data['kcal'];
+        echo 'il faut se bouger le cul pendant '.round($calprod/$calorie).' heures Gros sac!!';
     }
+}
 
 
-echo $result;
+
+
+
+
 
 
 include 'footer.php';
