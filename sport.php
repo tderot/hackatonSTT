@@ -7,7 +7,23 @@ $bdd = mysqli_connect (SERVER,USER,PASS,DB);
 $product = $_GET['product'];
 
 $productArray = explode(',', $product);
-
+switch ($productArray[2]) {
+    case 'a':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-a.svg">';
+        break;
+    case 'b':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-b.svg">';
+        break;
+    case 'c':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-c.svg">';
+        break;
+    case 'd':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-d.svg">';
+        break;
+    case 'e':
+        $productArray[2] = '<img class="nutriscore" src="image/nutriscore-e.svg">';
+        break;
+}
 ?>
 
     <table class="table table-bordered">
@@ -26,7 +42,7 @@ $productArray = explode(',', $product);
 
         <td><?php echo $productArray[2]?></td>
 
-        <td><img src="<?php echo $productArray[3]?>" alt="boire ou manger"></td>
+        <td><img class="imgProduct" src="<?php echo $productArray[3]?>" alt="boire ou manger"></td>
         </tr>
     </tbody>
     </table>

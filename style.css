@@ -1,6 +1,11 @@
-.table img{
+.imgProduct{
     height: 50px;
     width: 50px;
+
+}
+.nutriscore{
+    height: 100px;
+    width: 180px;
 
 }
 
