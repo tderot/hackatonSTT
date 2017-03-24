@@ -25,35 +25,45 @@ switch ($productArray[2]) {
         break;
 }
 ?>
+<div class="container-fluid sportif">
+    <div class="row">
+        <div class="col-md-2">
 
-    <table class="table table-bordered">
-    <thead>
-    <th>nom</th>
-    <th>kcal</th>
-    <th>note</th>
-    <th>image</th>
-    </thead>
-    <tbody>
-    <tr>
+        <img class="imgProduct" src="<?php echo $productArray[3]?>" alt="boire ou manger">
 
-        <td><?php echo $productArray[0]?></td>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
 
-        <td><?php echo $productArray[1]?></td>
+            <table class="table table-bordered sport">
+            <thead>
+            <th>nom</th>
+            <th>kcal</th>
+            <th>note</th>
+            </thead>
+            <tbody>
+            <tr>
 
-        <td><?php echo $productArray[2]?></td>
+                <td><?php echo $productArray[0]?></td>
 
-        <td><img class="imgProduct" src="<?php echo $productArray[3]?>" alt="boire ou manger"></td>
-        </tr>
-    </tbody>
-    </table>
+                <td><?php echo $productArray[1]?></td>
 
+                <td><?php echo $productArray[2]?></td>
+
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
     <form method="POST">
 
         <div class="form-group">
             <label for="sport">Choisissez un sport</label>
-            <select class="form-control" id="sport" name="sport">
+            <select style="width: 20%" class="form-control" id="sport" name="sport">
                 <?php
 
                 $sport = mysqli_query($bdd, "SELECT * FROM sports");
@@ -67,7 +77,6 @@ switch ($productArray[2]) {
         </div>
         <input type="submit" value="Calcul" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"/>
 
-<!--        <input type="submit" name="Ok" value="Calcul" data-target="#myModal">-->
     </form>
 
 
