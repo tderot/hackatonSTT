@@ -40,21 +40,22 @@ $json = json_decode($result, true);
             $kcal = round($json['products'][$i]['nutriments']['energy_value']/4.18);
 
             $note = $json['products'][$i]['nutrition_grade_fr'];
+            
             switch ($note) {
                 case 'a':
-                    $noteImg = '<img class="nutriscore" src="image/nutriscore-a.svg">';
+                    $note = '<img class="nutriscore" src="image/nutriscore-a.svg">';
                     break;
                 case 'b':
-                    $noteImg = '<img class="nutriscore" src="image/nutriscore-b.svg">';
+                    $note = '<img class="nutriscore" src="image/nutriscore-b.svg">';
                     break;
                 case 'c':
-                    $noteImg = '<img class="nutriscore" src="image/nutriscore-c.svg">';
+                    $note = '<img class="nutriscore" src="image/nutriscore-c.svg">';
                     break;
                 case 'd':
-                    $noteImg = '<img class="nutriscore" src="image/nutriscore-d.svg">';
+                    $note = '<img class="nutriscore" src="image/nutriscore-d.svg">';
                     break;
                 case 'e':
-                    $noteImg = '<img class="nutriscore" src="image/nutriscore-e.svg">';
+                    $note = '<img class="nutriscore" src="image/nutriscore-e.svg">';
                     break;
             }
 
@@ -64,7 +65,7 @@ $json = json_decode($result, true);
                             'image'=>$image);
 
             $test1 = implode($test,',');
-            //var_dump($test1);
+
             echo '<tr>';
 
             echo '<td>' . $name . '</td>';
@@ -72,7 +73,7 @@ $json = json_decode($result, true);
 
             echo '<td>' . $kcal . '</td>';
 
-            echo '<td>' . $noteImg . '</td>';
+            echo '<td>' . $note . '</td>';
 
             echo '<td>' . '<img class="imgProduct" src="' . $image . '" alt="boire ou manger"></td>';
 
