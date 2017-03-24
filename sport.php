@@ -41,29 +41,32 @@ switch ($productArray[2]) {
     </div>
 
     </div>
-</div>
 
-<form method="POST">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-6">
 
-    <div class="form-group">
-        <label for="sport">Choisissez un sport</label>
-        <select style="width: 20%" class="form-control" id="sport" name="sport">
-            <?php
+            <form method="POST">
 
-            $sport = mysqli_query($bdd, "SELECT * FROM sports");
-            while ($data = mysqli_fetch_assoc($sport)) {
-                $truc = $data['sport'];
-                echo '<option value="' . $data['id'] . '">' . $truc . '</option>';
-            }
-            ?>
+                <div class="form-group choix">
+                    <label for="sport">Choisissez un sport pour perdre toute cette graisse!</label>
+                    <select style="width: 20%" class="form-control" id="sport" name="sport">
+                        <?php
 
-        </select>
+                        $sport = mysqli_query($bdd, "SELECT * FROM sports");
+                        while ($data = mysqli_fetch_assoc($sport)) {
+                            $truc = $data['sport'];
+                            echo '<option value="' . $data['id'] . '">' . $truc . '</option>';
+                        }
+                        ?>
+
+                    </select>
+                </div>
+                <input type="submit" value="Calcul" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"/>
+
+            </form>
+        </div>
     </div>
-    <input type="submit" value="Calcul" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"/>
-
-</form>
-
-
+</div>
 <?php
 
 $calprod = $productArray[1];
@@ -76,11 +79,9 @@ if (isset($_POST['sport'])) {
         $calorie = $data['kcal'];
         $heure = floor($calprod / $calorie);
         $minute = ((($calprod / $calorie) - $heure) * 60);
-//        echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
         $minute = ((($calprod / $calorie) - $heure) * 60);
 
     }
-
 
 }
 
