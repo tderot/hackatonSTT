@@ -103,8 +103,18 @@ if (isset($_POST['sport'])){
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <?php
+                if ($heure<1){
+                    echo '<img src="https://media.tenor.co/images/b50f78b7ccc3693c39a2ca2a10d83b7a/tenor.gif"class="coco" >';
+
+                }
+                else{
+                    echo '<img  src="http://www.biblond.com/wp-content/uploads/2016/03/bloggif_56e837c2c175f.gif"class="coco">';
+                }
+                ?>
             </div>
-            <div class="modal-body"><?php
+            <div class="modal-body">
+                <?php
 
                 echo 'il faut se bouger le cul pendant '.$heure.' heures et '.round($minute).' minutes!!';
 
